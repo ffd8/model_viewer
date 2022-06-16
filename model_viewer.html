@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- cc teddavis.org 2022 -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>model_viewer v0.1</title>
+	<style type="text/css">
+		model-viewer{
+			height: 100vh;
+			width: 100vw;
+		}
+	</style>
+</head>
+<body>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<!-- Use it like any other HTML element -->
+<model-viewer id="model-viewer" src="" ar ar-modes="webxr scene-viewer quick-look" seamless-poster shadow-intensity="1" camera-controls autoplay enable-pan shadow-intensity="1" ></model-viewer>
+
+
+<script type="text/javascript">
+	/*
+		welcome to model_viewer!
+
+		just a basic tool built with modelviewer.dev 
+		to refresh every X second to see changes as you glitch away!
+
+		more info to adjust below: https://modelviewer.dev/
+		definitely works with GLB + glTF models (maybe more?!)
+
+		usage:
+		- place this file in same folder as your model
+		- rename modelPath below with your file name
+		- adjust refreshRate as desired
+		- run folder with this page + model as a webserver:
+			- 'cd' + spacebar + drag/drop your folder into terminal/commandprompt
+			- use one option below for quick server:
+				- python 2: python -m SimpleHTTPServer 8001
+				- python 3: python -m http.server 8001
+				- php:      php -S localhost:8001
+		- haaaave fun!
+	*/
+
+	// PREFS
+	let modelPath = 'food_apple_01_1k.glb' // cc https://polyhaven.com/a/food_apple_01
+	let refreshRate = 2 // # in sec
+
+
+	setInterval(function(){
+		document.getElementById('model-viewer').src=modelPath+"?"+Math.floor(Math.random()*99999)
+	}, refreshRate*1000)
+</script>
+</body>
+</html>
